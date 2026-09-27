@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer"
 import { GettingStarted } from "@/components/GettingStarted"
 import { Header } from "@/components/Header"
 import { HeroSection } from "@/components/HeroSection"
+import { HighlightsStrip } from "@/components/HighlightsStrip"
 import { ServicesSection } from "@/components/ServicesSection"
 import { ShopSection } from "@/components/ShopSection"
 import { Testimonials } from "@/components/Testimonials"
@@ -78,6 +79,7 @@ export default function Home() {
       <div id="services">
         <ServicesSection />
       </div>
+      <HighlightsStrip />
       <ShopSection />
       <div id="testimonials">
         <Testimonials />

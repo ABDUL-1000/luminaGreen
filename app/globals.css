@@ -151,6 +151,24 @@
   }
 }
 
+@keyframes highlight-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+.highlight-marquee {
+  animation: highlight-marquee 34s linear infinite;
+  will-change: transform;
+}
+
+.highlight-marquee:hover {
+  animation-play-state: paused;
+}
+
 .testimonial-marquee {
   animation: testimonial-marquee 32s linear infinite;
 }
@@ -165,6 +183,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .highlight-marquee,
   .testimonial-marquee,
   .testimonial-marquee-reverse {
     animation: none;

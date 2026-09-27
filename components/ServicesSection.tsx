@@ -1,6 +1,7 @@
 "use client"
 
 import { motion, useInView } from "framer-motion"
+import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
@@ -8,6 +9,9 @@ const services = [
   {
     title: "Waste pickup",
     className: "bg-[#e7f3e9]",
+    image: "/highlight/wastepuckup.jpeg",
+    imageAlt: "Lumina Green waste pickup worker beside collection bins",
+    imageClassName: "object-center",
     items: [
       { name: "240L bin", price: "₦2,000" },
       { name: "360L bin", price: "₦3,000" },
@@ -18,6 +22,9 @@ const services = [
   {
     title: "Deep cleaning",
     className: "bg-[#f3f0dc]",
+    image: "/highlight/deep cleaning.jpeg",
+    imageAlt: "Lumina Green team carrying out a deep clean",
+    imageClassName: "object-center",
     items: [
       { name: "Self-contained", price: "₦30,000" },
       { name: "1-bedroom apartment", price: "₦40,000" },
@@ -31,6 +38,9 @@ const services = [
   {
     title: "Office cleaning",
     className: "bg-[#e8f1f4]",
+    image: "/highlight/officecleaning.jpeg",
+    imageAlt: "Lumina Green team carrying out professional office cleaning",
+    imageClassName: "object-[center_58%]",
     items: [
       { name: "Offices and workspaces", price: "Inspection" },
       { name: "Hotels and restaurants", price: "Inspection" },
@@ -43,6 +53,9 @@ const services = [
   {
     title: "Carpet, rug & upholstery",
     className: "bg-[#f5e9df]",
+    image: "/highlight/carpet, rugs.jpeg",
+    imageAlt: "Lumina Green specialist professionally cleaning a large rug",
+    imageClassName: "object-[center_58%]",
     items: [
       { name: "Wall-to-wall carpet", price: "₦25,000" },
       { name: "Small, medium, large or XL rugs", price: "Inspection" },
@@ -54,6 +67,9 @@ const services = [
   {
     title: "Fumigation",
     className: "bg-[#eeeaf3]",
+    image: "/highlight/fumigation-specialist.jpeg",
+    imageAlt: "Lumina Green fumigation specialist in protective equipment",
+    imageClassName: "object-[center_34%]",
     items: [
       { name: "Self-contained", price: "₦25,000" },
       { name: "1-bedroom apartment", price: "₦35,000" },
@@ -66,6 +82,9 @@ const services = [
   {
     title: "Training & consultancy",
     className: "bg-[#edf4df]",
+    image: "/highlight/training.jpeg",
+    imageAlt: "Lumina Green practical cleaning and equipment training session",
+    imageClassName: "object-center",
     items: [
       { name: "Cleaning team training", price: "Custom quote" },
       { name: "Waste-handling guidance", price: "Custom quote" },
@@ -172,9 +191,20 @@ export function ServicesSection() {
                 />
 
                 <div className="relative">
-                  <h3 className="text-[clamp(1.75rem,3.2vw,2.65rem)] font-semibold leading-[1.02] tracking-[-0.045em]">
-                    {service.title}
-                  </h3>
+                  <div className="grid gap-5 sm:grid-cols-[minmax(0,1fr)_10.5rem] sm:items-stretch">
+                    <h3 className="self-center text-[clamp(1.75rem,3.2vw,2.65rem)] font-semibold leading-[1.02] tracking-[-0.045em]">
+                      {service.title}
+                    </h3>
+                    <div className="relative h-40 overflow-hidden rounded-[1.25rem] border border-white/70 bg-white/45 shadow-[0_12px_28px_rgba(21,61,41,0.08)] sm:h-32">
+                      <Image
+                        src={service.image}
+                        alt={service.imageAlt}
+                        fill
+                        sizes="(max-width: 640px) 84vw, 168px"
+                        className={`object-cover transition duration-700 group-hover:scale-[1.035] ${service.imageClassName}`}
+                      />
+                    </div>
+                  </div>
                   <ul className="mt-7 border-y border-[#153d29]/10">
                     {service.items.map((item) => (
                       <li

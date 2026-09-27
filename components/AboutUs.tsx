@@ -23,7 +23,7 @@ const highlights = [
     className: "md:col-span-5 min-h-[430px] md:min-h-0",
   },
   {
-    src: "/highlight/carpet-cleaning.jpeg",
+    src: "/highlight/carpet, rugs.jpeg",
     alt: "Lumina Green professional cleaning a large carpet",
     label: "Carpet care",
     className: "md:col-span-5 min-h-[430px]",

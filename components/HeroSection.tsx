@@ -59,12 +59,12 @@ export function HeroSection() {
             className="relative min-h-[320px] min-w-0 overflow-hidden sm:min-h-[400px] lg:min-h-0"
           >
             <Image
-              src="/highlight/upholstery-cleaning-enhanced.png"
-              alt="Lumina Green 360 team professionally cleaning upholstery"
+              src="/heropic.png"
+              alt="Lumina Green 360 waste pickup and cleaning team"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 55vw"
-              className="object-cover object-[center_52%] transition duration-700 hover:scale-[1.02]"
+              className="object-cover object-[53%_center] transition duration-700 hover:scale-[1.02]"
             />
           </motion.div>
         </div>
