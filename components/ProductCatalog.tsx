@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { MessageCircle, PackageCheck, ShieldCheck, Store, Truck } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
+import { primaryButtonClass } from "@/lib/buttonStyles"
 
 const categories = ["All", "Cleaning", "Waste & bins", "Safety"] as const
 
@@ -171,7 +172,7 @@ export function ProductCatalog() {
                     type="button"
                     onClick={() => openWhatsAppOrder(product.name, product.image)}
                     aria-label={`Buy ${product.name} on WhatsApp`}
-                    className="inline-flex shrink-0 items-center rounded-full bg-[#153f2b] px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#0f3120] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1f7a49] focus-visible:ring-offset-2"
+                    className={`${primaryButtonClass} shrink-0 px-4 py-2.5 text-sm`}
                   >
                     Buy
                   </button>
@@ -255,7 +256,7 @@ export function ProductCatalog() {
               href="https://wa.me/2347079100046?text=Hello%20Lumina%20Green%20360%2C%20I%20need%20help%20choosing%20a%20product."
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center rounded-full bg-[#c7f075] px-6 py-3.5 font-semibold text-[#123321] transition hover:-translate-y-0.5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#153f2b]"
+              className={`${primaryButtonClass} mt-8 px-6 py-3.5`}
             >
               Ask on WhatsApp
             </a>

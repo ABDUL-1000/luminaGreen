@@ -8,7 +8,7 @@ const highlights = [
     position: "object-center",
   },
   {
-    src: "/highlight/officecleaning.jpeg",
+    src: "/highlight/officecleaning-optimized.jpg",
     alt: "Lumina Green team cleaning a professional interior",
     widthClass: "w-[15rem] sm:w-[18rem]",
     position: "object-[center_58%]",
@@ -32,7 +32,7 @@ const highlights = [
     position: "object-[center_34%]",
   },
   {
-    src: "/highlight/training.jpeg",
+    src: "/highlight/training-optimized.jpg",
     alt: "Lumina Green practical cleaning training session",
     widthClass: "w-[20rem] sm:w-[25rem]",
     position: "object-center",
@@ -103,13 +103,16 @@ export function HighlightsStrip() {
           <div
             key={`${highlight.src}-${index}`}
             aria-hidden={index >= highlights.length ? true : undefined}
-            className={`relative h-52 shrink-0 overflow-hidden rounded-[1.5rem] border border-[#173c2a]/10 bg-white shadow-[0_16px_38px_rgba(21,61,41,0.08)] sm:h-64 lg:h-72 ${highlight.widthClass}`}
+            className={`relative h-52 shrink-0 overflow-hidden rounded-[1.5rem] border border-[#173c2a]/10 bg-[#e9eeeb] shadow-[0_16px_38px_rgba(21,61,41,0.08)] sm:h-64 lg:h-72 ${highlight.widthClass}`}
           >
             <Image
               src={highlight.src}
               alt={index < highlights.length ? highlight.alt : ""}
               fill
               sizes="(max-width: 640px) 80vw, 400px"
+              loading="eager"
+              quality={70}
+              decoding="async"
               className={`object-cover ${highlight.position}`}
             />
           </div>

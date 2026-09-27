@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
+import { primaryButtonClass } from "@/lib/buttonStyles"
 
 export function ShopSection() {
   return (
@@ -26,7 +27,7 @@ export function ShopSection() {
           </p>
           <Link
             href="/products"
-            className="mt-8 inline-flex min-h-12 w-fit items-center rounded-full bg-[#153f2b] px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#0f3120] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#153f2b] focus-visible:ring-offset-2"
+            className={`${primaryButtonClass} mt-8 min-h-12 w-fit px-6 py-3 text-sm`}
           >
             Visit the shop
           </Link>

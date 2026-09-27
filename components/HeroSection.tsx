@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { useRef } from "react"
+import { primaryButtonClass } from "@/lib/buttonStyles"
 
 const whatsappUrl =
   "https://wa.me/2347079100046?text=Hello%20Lumina%20Green%20360%2C%20I%20have%20waste%20I%20would%20like%20to%20sell%20or%20donate."
@@ -38,7 +39,7 @@ export function HeroSection() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-11 w-full items-center justify-center whitespace-nowrap rounded-full bg-[#173f2a] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_32px_rgba(23,63,42,0.2)] transition hover:-translate-y-0.5 hover:bg-[#0e301d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#173f2a] focus-visible:ring-offset-2 min-[480px]:w-auto"
+                className={`${primaryButtonClass} min-h-11 w-full whitespace-nowrap px-5 py-3 text-sm min-[480px]:w-auto`}
               >
                 Sell or donate
               </Link>

@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
+import { primaryButtonClass } from "@/lib/buttonStyles"
 
 interface HeaderProps {
   onSectionSelect?: (section: string) => void;
@@ -89,7 +90,7 @@ export function Header({ onSectionSelect, onPageSelect }: HeaderProps) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden whitespace-nowrap rounded-full bg-[#163e2a] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(22,62,42,0.18)] transition hover:-translate-y-0.5 hover:bg-[#0f3120] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#17643a] focus-visible:ring-offset-2 md:inline-flex"
+            className={`${primaryButtonClass} hidden whitespace-nowrap px-5 py-2.5 text-sm md:inline-flex`}
           >
             Sell or donate
           </Link>
@@ -140,7 +141,7 @@ export function Header({ onSectionSelect, onPageSelect }: HeaderProps) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 flex items-center justify-center gap-2 rounded-2xl bg-[#163e2a] px-5 py-3.5 font-semibold text-white"
+                className={`${primaryButtonClass} mt-2 px-5 py-3.5`}
               >
                 Sell or donate
               </Link>
