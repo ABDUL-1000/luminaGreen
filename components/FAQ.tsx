@@ -19,7 +19,7 @@ const faqs = [
   {
     question: "Are the prices on the website final?",
     answer:
-      "Fixed rates apply to the listed apartment sizes and standard waste bins. Office cleaning, upholstery work and unusual or larger jobs may require a quick inspection before we confirm the final amount.",
+      "Fixed rates apply to the listed apartment sizes and standard waste bins. For office cleaning or unusual and larger jobs, chat with us to confirm the final amount.",
   },
   {
     question: "What should I do before fumigation?",

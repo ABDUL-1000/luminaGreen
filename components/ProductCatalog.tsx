@@ -13,14 +13,14 @@ type Category = (typeof categories)[number]
 const products = [
   {
     name: "Cotton Work Gloves",
-    price: "₦2,500",
+    price: "₦5,000",
     category: "Safety",
     image: "/products/cotton-work-gloves.png",
     imageAlt: "A pair of white cotton work gloves",
   },
   {
     name: "Blue Spin Mop Set",
-    price: "₦18,500",
+    price: "₦25,000",
     category: "Cleaning",
     image: "/products/blue-spin-mop.png",
     imageAlt: "Blue spin mop and bucket set",
@@ -41,7 +41,7 @@ const products = [
   },
   {
     name: "Disposable Latex Gloves",
-    price: "₦7,500",
+    price: "₦10,000",
     category: "Safety",
     image: "/products/disposable-gloves.png",
     imageAlt: "Box of white disposable latex gloves",
@@ -55,7 +55,7 @@ const products = [
   },
   {
     name: "Heavy-Duty Refuse Sacks",
-    price: "₦4,000",
+    price: "₦1,500",
     category: "Waste & bins",
     image: "/products/refuse-sacks.png",
     imageAlt: "Three rolls of heavy-duty black refuse sacks",
@@ -69,7 +69,7 @@ const products = [
   },
   {
     name: "Protective Safety Helmet",
-    price: "₦6,500",
+    price: "₦9,000",
     category: "Safety",
     image: "/products/safety-helmet.jpeg",
     imageAlt: "Blue protective safety helmet",
