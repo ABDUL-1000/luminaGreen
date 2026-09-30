@@ -13,10 +13,10 @@ const services = [
     imageAlt: "Lumina Green waste pickup worker beside collection bins",
     imageClassName: "object-center",
     items: [
-      { name: "240L bin", price: "₦6,000" },
-      { name: "360L bin", price: "₦5,000" },
-      { name: "600L bin", price: "₦4,000" },
-      { name: "1,100L bin", price: "₦3,000" },
+      { name: "240L bin", price: "₦3,000" },
+      { name: "360L bin", price: "₦4,000" },
+      { name: "600L bin", price: "₦5,000" },
+      { name: "1,100L bin", price: "₦6,000" },
     ],
   },
   {

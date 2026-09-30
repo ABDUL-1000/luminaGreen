@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { FAQSection } from "@/components/FAQ"
+import { AppDownloadSection } from "@/components/AppDownloadSection"
 import { Footer } from "@/components/Footer"
 import { GettingStarted } from "@/components/GettingStarted"
 import { Header } from "@/components/Header"
@@ -75,6 +76,7 @@ export default function Home() {
       <div id="home">
         <HeroSection />
       </div>
+      <AppDownloadSection />
       <GettingStarted />
       <div id="services">
         <ServicesSection />

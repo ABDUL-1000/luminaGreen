@@ -158,9 +158,9 @@ export function Footer({ onSectionSelect, onPageSelect }: FooterProps) {
             <h3 className="font-semibold mb-4 text-foreground">Legal</h3>
             <ul className="space-y-2 text-sm">
               {[
-                { name: "Privacy Policy", type: "page", id: "privacy" },
-                { name: "Terms & Conditions", type: "page", id: "privacy" },
-                { name: "Refund Policy", type: "page", id: "privacy" }
+                { name: "Privacy & Data Protection", href: "/?view=privacy&section=privacy" },
+                { name: "Terms & Conditions", href: "/?view=privacy&section=terms" },
+                { name: "Service Redo Policy", href: "/?view=privacy&section=redo" }
               ].map((legal, index) => (
                 <motion.li
                   key={legal.name}
@@ -168,12 +168,12 @@ export function Footer({ onSectionSelect, onPageSelect }: FooterProps) {
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                   transition={{ duration: 0.4, delay: 0.5 + index * 0.05 }}
                 >
-                  <button
-                    onClick={() => handlePageClick(legal.id)}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-left w-full"
+                  <a
+                    href={legal.href}
+                    className="block w-full text-left text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {legal.name}
-                  </button>
+                  </a>
                 </motion.li>
               ))}
             </ul>
