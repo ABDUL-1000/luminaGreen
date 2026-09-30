@@ -7,7 +7,7 @@ import { useRef } from "react"
 import { primaryButtonClass } from "@/lib/buttonStyles"
 
 const whatsappUrl =
-  "https://wa.me/2347079100046?text=Hello%20Lumina%20Green%20360%2C%20I%20have%20waste%20I%20would%20like%20to%20sell%20or%20donate."
+  "https://wa.me/2347079100046?text=I%20want%20to%20sell%20or%20donate%20plastic%20waste."
 
 export function HeroSection() {
   const ref = useRef(null)
@@ -26,7 +26,7 @@ export function HeroSection() {
             <h1 className="max-w-[620px] text-[clamp(2rem,9.2vw,4rem)] font-semibold leading-[1.02] tracking-[-0.05em] text-[#112b1d]">
               <span className="block whitespace-nowrap">Sell it.</span>
               <span className="block whitespace-nowrap">Donate it.</span>
-              <span className="block whitespace-nowrap text-[#257447]">We&apos;ll pick it up.</span>
+              <span className="block text-[#257447]">We accept plastic waste</span>
             </h1>
 
             <p className="mt-5 max-w-[560px] text-[0.98rem] leading-7 text-[#52675a] sm:text-[1.06rem]">

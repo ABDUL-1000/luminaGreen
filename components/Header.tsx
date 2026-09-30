@@ -21,7 +21,7 @@ const navItems = [
 ] as const
 
 const whatsappUrl =
-  "https://wa.me/2347079100046?text=Hello%20Lumina%20Green%20360%2C%20I%20want%20to%20sell%20or%20donate%20waste."
+  "https://wa.me/2347079100046?text=I%20want%20to%20sell%20or%20donate%20plastic%20waste."
 
 export function Header({ onSectionSelect, onPageSelect }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

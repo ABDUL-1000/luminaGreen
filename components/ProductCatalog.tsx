@@ -12,11 +12,25 @@ type Category = (typeof categories)[number]
 
 const products = [
   {
-    name: "Wool Gloves",
+    name: "Scrubbing Set",
+    price: "₦2,500",
+    category: "Cleaning",
+    image: "/products/scrubbing.jpg",
+    imageAlt: "Lumina Green scrubbing set with cleaner, gloves, scrubber and pads",
+  },
+  {
+    name: "Lumina Toilet & Tile Cleaner",
+    price: "₦3,500",
+    category: "Cleaning",
+    image: "/products/lumina-toilet-cleaner.jpeg",
+    imageAlt: "Lumina Green toilet and tile cleaner bottles",
+  },
+  {
+    name: "Reusable Gloves",
     price: "₦2,500",
     category: "Safety",
-    image: "/products/cotton-work-gloves.png",
-    imageAlt: "A pair of white wool work gloves",
+    image: "/products/reusable-gloves.jpg",
+    imageAlt: "Black reusable gloves with their product box",
   },
   {
     name: "Blue Spin Mop Set",
@@ -45,13 +59,6 @@ const products = [
     category: "Safety",
     image: "/products/disposable-gloves.png",
     imageAlt: "Box of white disposable latex gloves",
-  },
-  {
-    name: "Lumina Toilet & Tile Cleaner",
-    price: "₦3,500",
-    category: "Cleaning",
-    image: "/products/lumina-toilet-cleaner.jpeg",
-    imageAlt: "Lumina Green toilet and tile cleaner bottles",
   },
   {
     name: "Heavy-Duty Refuse Sacks",
