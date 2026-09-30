@@ -13,7 +13,7 @@ type Category = (typeof categories)[number]
 const products = [
   {
     name: "Scrubbing Set",
-    price: "₦2,500",
+    price: "₦6,000",
     category: "Cleaning",
     image: "/products/scrubbing.jpg",
     imageAlt: "Lumina Green scrubbing set with cleaner, gloves, scrubber and pads",
@@ -29,8 +29,8 @@ const products = [
     name: "Reusable Gloves",
     price: "₦2,500",
     category: "Safety",
-    image: "/products/reusable-gloves.jpg",
-    imageAlt: "Black reusable gloves with their product box",
+    image: "/products/reusable-cleaning-gloves.webp",
+    imageAlt: "A pair of yellow reusable rubber cleaning gloves",
   },
   {
     name: "Blue Spin Mop Set",
