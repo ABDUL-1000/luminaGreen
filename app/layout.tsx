@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
-import { Mochiy_Pop_P_One } from "next/font/google";
+import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 
-// Load the Mochiy Pop P One font
-const mochiyPopPOne = Mochiy_Pop_P_One({
-  weight: '400',
+const displayFont = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-mochiy",
-  display: 'swap',
+  variable: "--font-bricolage",
+  display: "swap",
+});
+
+const bodyFont = Instrument_Sans({
+  subsets: ["latin"],
+  variable: "--font-instrument",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Lumina360",
-  description: "",
+  title: "Lumina Green 360 | Waste Pickup & Cleaning in Maiduguri",
+  description:
+    "Sell or donate recyclable waste and book affordable waste pickup and cleaning services across Maiduguri.",
 };
 
 export default function RootLayout({
@@ -22,7 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${mochiyPopPOne.variable} antialiased bg-[#F9FAFB] `}>
+      <body
+        className={[
+          displayFont.variable,
+          bodyFont.variable,
+          "bg-[#f3f4f5] antialiased",
+        ].join(" ")}
+      >
         {children}
       </body>
     </html>

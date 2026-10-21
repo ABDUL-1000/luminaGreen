@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { primaryButtonClass } from "@/lib/buttonStyles";
 
 export default function ContactUsView() {
   const ref = useRef(null);
@@ -187,16 +187,13 @@ export default function ContactUsView() {
               >
                 <Button 
                   type="submit" 
-                  className="w-full rounded-full bg-gradient-to-r to-[#0B5A33] from-[#0D8E4B] py-6 text-lg"
+                  className={`${primaryButtonClass} w-full py-6 text-lg`}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
                     "Opening Email..."
                   ) : (
-                    <>
-                      Contact Us Now
-                      <ChevronRight size={20}/>
-                    </>
+                    "Contact Us Now"
                   )}
                 </Button>
               </motion.div>

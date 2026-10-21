@@ -1,27 +1,41 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FAQSection } from "@/components/FAQ"
+import { AppDownloadSection } from "@/components/AppDownloadSection"
 import { Footer } from "@/components/Footer"
 import { GettingStarted } from "@/components/GettingStarted"
 import { Header } from "@/components/Header"
 import { HeroSection } from "@/components/HeroSection"
-import { PricingSection } from "@/components/PricingSection"
+import { HighlightsStrip } from "@/components/HighlightsStrip"
 import { ServicesSection } from "@/components/ServicesSection"
+import { ShopSection } from "@/components/ShopSection"
 import { Testimonials } from "@/components/Testimonials"
-import dynamic from "next/dynamic";
 import AboutUsView from "@/components/AboutUs";
 import ContactUsView from "@/components/ContactUs";
 import PrivacyPolicyView from "@/components/Privacy";
-
-// Dynamic imports for page views
-
 
 export default function Home() {
   const [currentView, setCurrentView] = useState<{
     type: 'section' | 'page';
     name: string;
   } | null>(null);
+
+  useEffect(() => {
+    const requestedView = new URLSearchParams(window.location.search).get("view");
+
+    if (["about", "contact", "privacy"].includes(requestedView ?? "")) {
+      setCurrentView({ type: "page", name: requestedView as string });
+      return;
+    }
+
+    if (window.location.hash) {
+      const section = window.location.hash.slice(1);
+      requestAnimationFrame(() => {
+        document.getElementById(section)?.scrollIntoView();
+      });
+    }
+  }, []);
 
   const handleSectionSelect = (section: string) => {
     setCurrentView({ type: 'section', name: section });
@@ -62,13 +76,13 @@ export default function Home() {
       <div id="home">
         <HeroSection />
       </div>
+      <AppDownloadSection />
       <GettingStarted />
       <div id="services">
         <ServicesSection />
       </div>
-      <div id="pricing">
-        <PricingSection />
-      </div>
+      <HighlightsStrip />
+      <ShopSection />
       <div id="testimonials">
         <Testimonials />
       </div>
@@ -79,12 +93,12 @@ export default function Home() {
   );
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-clip">
       <Header 
         onSectionSelect={handleSectionSelect}
         onPageSelect={handlePageSelect}
       />
-      <main className="w-[90%] mx-auto">
+      <main className="mx-auto w-[92%] max-w-[1360px]">
         {renderView()}
       </main>
       <Footer 

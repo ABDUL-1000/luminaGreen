@@ -1,97 +1,72 @@
-"use client";
+"use client"
 
-import { Button } from "@/components/ui/button"
-import { ChevronRight } from "lucide-react"
+import { motion, useInView } from "framer-motion"
 import Image from "next/image"
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
+import Link from "next/link"
 import { useRef } from "react"
-import Link from "next/link";
+import { primaryButtonClass } from "@/lib/buttonStyles"
+
+const whatsappUrl =
+  "https://wa.me/2347079100046?text=I%20want%20to%20sell%20or%20donate%20plastic%20waste."
 
 export function HeroSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: true, margin: "-80px" })
 
   return (
-    <section ref={ref} className="w-full py-10">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-5 items-center">
-          {/* Text Content */}
-          <div className="sm:space-y-5 space-y-2">
-            <motion.h1 
-              className="text-xl lg:text-5xl font-semi-bold text-foreground text-center lg:text-start lg:leading-20 text-balance"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Turning Waste into a <motion.span 
-                className="text-primary"
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >Cleaner Future</motion.span>
-            </motion.h1>
-            
-            <motion.p 
-              className="text-neutral-800 text-justify  leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-            >
-              Affordable and reliable waste pickup and cleaning services in Maiduguri. Together, let's build a sustainable city.
-            </motion.p>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.7, delay: 0.6 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center justify-center lg:justify-start"
-            >
-              <Button className="rounded-full bg-gradient-to-r to-[#0B5A33] from-[#0D8E4B]">
-              <Link href="http://wa.me/2347079100046">
-                  Book a Pickup 
-                  </Link>
-                <motion.span 
-                  className="ml-2"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ 
-                    repeat: Infinity, 
-                    duration: 1.5,
-                    repeatDelay: 2
-                  }}
-                >
-                  <ChevronRight size={20}/>
-                </motion.span>
-              </Button>
-            </motion.div>
-          </div>
-
-          {/* Image Content */}
-          <motion.div 
-            className="relative"
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.9, delay: 0.3 }}
+    <section ref={ref} className="w-full py-5 sm:py-8">
+      <div className="overflow-hidden rounded-[1.5rem] border border-[#173c2a]/10 bg-white shadow-[0_24px_80px_rgba(31,78,51,0.10)] lg:rounded-[2rem]">
+        <div className="grid min-w-0 lg:min-h-[560px] lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            className="flex min-w-0 flex-col justify-center px-5 py-10 sm:px-9 sm:py-12 lg:px-12 xl:px-16"
           >
-            <motion.div 
-              className="w-full rounded-2xl flex items-center justify-end"
-              whileHover={{ 
-                scale: 1.02,
-                transition: { duration: 0.3 }
-              }}
-            >
-              <Image 
-                src="/van.png" 
-                alt="Lumina Green 360 Van" 
-                width={400} 
-                height={300}
-                className="w-full max-w-md lg:max-w-lg mx-auto"
-              />
-            </motion.div>
-            
-          
+            <h1 className="max-w-[620px] text-[clamp(2rem,9.2vw,4rem)] font-semibold leading-[1.02] tracking-[-0.05em] text-[#112b1d]">
+              <span className="block whitespace-nowrap">Sell it.</span>
+              <span className="block whitespace-nowrap">Donate it.</span>
+              <span className="block text-[#257447]">We accept plastic waste</span>
+            </h1>
+
+            <p className="mt-5 max-w-[560px] text-[0.98rem] leading-7 text-[#52675a] sm:text-[1.06rem]">
+              Sell recyclable waste, donate what you no longer need, or book
+              affordable pickup and cleaning anywhere in Maiduguri.
+            </p>
+
+            <div className="mt-7 flex w-full flex-col gap-3 min-[480px]:flex-row">
+              <Link
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${primaryButtonClass} min-h-11 w-full whitespace-nowrap px-5 py-3 text-sm min-[480px]:w-auto`}
+              >
+                Sell or donate
+              </Link>
+              <button
+                type="button"
+                onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+                className="inline-flex min-h-11 w-full items-center justify-center whitespace-nowrap rounded-full border border-[#173f2a]/20 bg-white/65 px-5 py-3 text-sm font-semibold text-[#173f2a] transition hover:border-[#173f2a]/40 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#173f2a] min-[480px]:w-auto"
+              >
+                View services
+              </button>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 1.025 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.025 }}
+            transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="relative min-h-[320px] min-w-0 overflow-hidden sm:min-h-[400px] lg:min-h-0"
+          >
+            <Image
+              src="/heropic.png"
+              alt="Lumina Green 360 waste pickup and cleaning team"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 55vw"
+              className="object-cover object-[53%_center] transition duration-700 hover:scale-[1.02]"
+            />
           </motion.div>
         </div>
       </div>

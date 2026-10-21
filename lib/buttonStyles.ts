@@ -1,0 +1,2 @@
+export const primaryButtonClass =
+  "inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#0D8E4B] to-[#0B5A33] font-semibold text-white shadow-[0_12px_30px_rgba(11,90,51,0.18)] transition duration-200 hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D8E4B] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60"

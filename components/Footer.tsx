@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface FooterProps {
   onSectionSelect?: (section: string) => void;
@@ -41,19 +42,23 @@ export function Footer({ onSectionSelect, onPageSelect }: FooterProps) {
   const handleSectionClick = (section: string) => {
     if (onSectionSelect) {
       onSectionSelect(section);
+    } else {
+      window.location.assign(section === "home" ? "/" : `/#${section}`);
     }
   }
 
   const handlePageClick = (page: string) => {
     if (onPageSelect) {
       onPageSelect(page);
+    } else {
+      window.location.assign(`/?view=${page}`);
     }
   }
 
   return (
-    <footer ref={ref} className="w-full bg-white text-foreground py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8">
+    <footer ref={ref} className="w-full border-t border-[#173c2a]/10 bg-white py-12 text-foreground sm:py-14">
+      <div className="mx-auto w-[92%] max-w-[1360px]">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           {/* Company Info */}
           <motion.div 
             className="space-y-4"
@@ -70,7 +75,7 @@ export function Footer({ onSectionSelect, onPageSelect }: FooterProps) {
               />
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Making clean energy affordable and accessible for every Nigerian home.
+              Cleaner spaces, responsible waste handling, and practical products for Maiduguri.
             </p>
           </motion.div>
 
@@ -86,7 +91,7 @@ export function Footer({ onSectionSelect, onPageSelect }: FooterProps) {
                 { name: "Home", type: "section", id: "home" },
                 { name: "About Us", type: "page", id: "about" },
                 { name: "Services", type: "section", id: "services" },
-                { name: "Pricing", type: "section", id: "pricing" },
+                { name: "Products", type: "link", id: "/products" },
                 { name: "Testimonials", type: "section", id: "testimonials" },
                 { name: "FAQs", type: "section", id: "faqs" },
                 { name: "Contact Us", type: "page", id: "contact" }
@@ -97,12 +102,21 @@ export function Footer({ onSectionSelect, onPageSelect }: FooterProps) {
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
                 >
-                  <button
-                    onClick={() => link.type === 'section' ? handleSectionClick(link.id) : handlePageClick(link.id)}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-left w-full"
-                  >
-                    {link.name}
-                  </button>
+                  {link.type === "link" ? (
+                    <Link
+                      href={link.id}
+                      className="block w-full text-left text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => link.type === 'section' ? handleSectionClick(link.id) : handlePageClick(link.id)}
+                      className="text-muted-foreground hover:text-foreground transition-colors text-left w-full"
+                    >
+                      {link.name}
+                    </button>
+                  )}
                 </motion.li>
               ))}
             </ul>
@@ -116,14 +130,20 @@ export function Footer({ onSectionSelect, onPageSelect }: FooterProps) {
           >
             <h3 className="font-semibold mb-4 text-foreground">Services</h3>
             <ul className="space-y-2 text-sm">
-              {["Household Pickup", "Commercial Cleaning", "Business Waste", "Recycling"].map((service, index) => (
+              {["Waste pickup", "Deep cleaning", "Office cleaning", "Fumigation"].map((service, index) => (
                 <motion.li
                   key={service}
                   initial={{ opacity: 0, x: -10 }}
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.05 }}
                 >
-                  <span className="text-muted-foreground">{service}</span>
+                  <button
+                    type="button"
+                    onClick={() => handleSectionClick("services")}
+                    className="text-left text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {service}
+                  </button>
                 </motion.li>
               ))}
             </ul>
@@ -138,9 +158,9 @@ export function Footer({ onSectionSelect, onPageSelect }: FooterProps) {
             <h3 className="font-semibold mb-4 text-foreground">Legal</h3>
             <ul className="space-y-2 text-sm">
               {[
-                { name: "Privacy Policy", type: "page", id: "privacy" },
-                { name: "Terms & Conditions", type: "page", id: "privacy" },
-                { name: "Refund Policy", type: "page", id: "privacy" }
+                { name: "Privacy & Data Protection", href: "/?view=privacy&section=privacy" },
+                { name: "Terms & Conditions", href: "/?view=privacy&section=terms" },
+                { name: "Service Redo Policy", href: "/?view=privacy&section=redo" }
               ].map((legal, index) => (
                 <motion.li
                   key={legal.name}
@@ -148,12 +168,12 @@ export function Footer({ onSectionSelect, onPageSelect }: FooterProps) {
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                   transition={{ duration: 0.4, delay: 0.5 + index * 0.05 }}
                 >
-                  <button
-                    onClick={() => handlePageClick(legal.id)}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-left w-full"
+                  <a
+                    href={legal.href}
+                    className="block w-full text-left text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {legal.name}
-                  </button>
+                  </a>
                 </motion.li>
               ))}
             </ul>
@@ -162,7 +182,7 @@ export function Footer({ onSectionSelect, onPageSelect }: FooterProps) {
 
         {/* Social Media Icons and Copyright Section */}
         <motion.div 
-          className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+          className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-border pt-7 sm:flex-row sm:items-center"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
@@ -174,7 +194,7 @@ export function Footer({ onSectionSelect, onPageSelect }: FooterProps) {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
             transition={{ duration: 0.5, delay: 0.7 }}
           >
-            Copyright © 2024 Lumina. All rights reserved.
+            Copyright © 2026 Lumina Green 360. All rights reserved.
           </motion.p>
           
           {/* Social Media Icons */}
